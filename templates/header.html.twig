@@ -11,9 +11,9 @@
             <button type="button" class="btn btn-primary"><a class="link  text-white" href="./index.php/profile">
                 {{ app.user }}
             </a></button>
-            <button type="button" class="btn btn-light"><a class="link" href="index.php/logout">Se deconnecter</a></button>
+            <button type="button" class="btn btn-light"><a class="link" href="{{path('fos_user_security_logout')}}">Se deconnecter</a></button>
             {% else %}
-            <button type="button" class="btn btn-light"><a class="link" href="index.php/login">Se Connecter</a></button>
+            <button type="button" class="btn btn-light"><a class="link" href="{{path('fos_user_security_login')}}">Se Connecter</a></button>
             {% endif %}
            <button type="button" class="btn btn-light"><a class="text-danger" href="index.php/register">S'inscrire</a></button>
         </div>
