@@ -1,0 +1,7 @@
+vich_uploader:
+    db_driver: orm
+
+    mappings:
+        post_image:
+            uri_prefix:         '%app.path.post_image%'
+            upload_destination: '%kernel.project_dir%/public/images/post'
