@@ -22,12 +22,12 @@ class Post
     private $title;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $summary;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="text", length=255)
      */
     private $content;
 
@@ -45,6 +45,11 @@ class Post
      * @ORM\Column(type="string", length=255)
      */
     private $image;
+
+    public function __construct()
+    {
+        $this->created_at = new \Datetime;
+    }
 
     public function getId(): ?int
     {
@@ -99,18 +104,6 @@ class Post
         return $this;
     }
 
-    public function getAuthor(): ?string
-    {
-        return $this->author;
-    }
-
-    public function setAuthor(string $author): self
-    {
-        $this->author = $author;
-
-        return $this;
-    }
-
     public function getImage(): ?string
     {
         return $this->image;
@@ -119,6 +112,18 @@ class Post
     public function setImage(string $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
