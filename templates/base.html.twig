@@ -19,6 +19,12 @@
             {{flash}}
         </div>
     {% endfor %}
+
+    {% for flash in app.session.flashBag.get('com') %}
+        <div id="com" class="alert alert-notice alert-danger">
+            {{flash}}
+        </div>
+    {% endfor %}
     
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}

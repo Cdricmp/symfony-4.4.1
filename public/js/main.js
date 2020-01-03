@@ -73,7 +73,7 @@ $(document).ready(function() {
                  $('#author', e).html(post['username']);
  
                   var monImg = document.createElement('img');
-                  monImg.src="/"+post['image'];
+                  monImg.src="/webforce/public/img/post/"+post['image'];
  
                  $('#image', e).html(monImg);
                  $('#image img').css({"width":"75px","max-height":"75px"});
