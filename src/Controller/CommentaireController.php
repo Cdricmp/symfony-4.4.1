@@ -42,6 +42,9 @@ class CommentaireController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+
+            $commentaire->setUser($this->getUser());
+
             $entityManager->persist($commentaire);
             $entityManager->flush();
 

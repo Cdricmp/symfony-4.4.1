@@ -40,4 +40,21 @@
     <a href="{{ path('post_edit', {'id': post.id}) }}">edit</a>
 
     {{ include('post/_delete_form.html.twig') }}
+
+    <hr>
+    <h1>Commentaires</h1>
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+    {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <input type="submit" value="Create" />
+        {{ form_end(form) }}
+    {% endif %}
+
+    {% for commentaire in commentaires %}
+    <p>Posté par <span style="font-weight:bold;">{{commentaire.user}}</span>
+        le {{commentaire.createdAt|date('d/m/y h:i')}}
+    </p>
+    {{commentaire.Comment}}
+
+    {% endfor %}
 {% endblock %}

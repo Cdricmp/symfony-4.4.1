@@ -17,7 +17,7 @@ class Commentaire
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="text", length=255)
      */
     private $Comment;
 
@@ -29,7 +29,7 @@ class Commentaire
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User")
      */
-    private $User;
+    private $user;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Post")
@@ -70,17 +70,6 @@ class Commentaire
         return $this;
     }
 
-    public function getUser(): ?string
-    {
-        return $this->User;
-    }
-
-    public function setUser(string $User): self
-    {
-        $this->User = $User;
-
-        return $this;
-    }
 
     public function getPost(): ?Post
     {
@@ -90,6 +79,18 @@ class Commentaire
     public function setPost(?Post $post): self
     {
         $this->post = $post;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
